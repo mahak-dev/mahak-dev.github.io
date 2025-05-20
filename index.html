@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahak Gupta | AI/ML Computational Scientist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6C63FF',
+                        secondary: '#FF6584',
+                        accent: '#00C9A7',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 6s ease infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .typewriter {
+            border-right: 3px solid #00C9A7;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+            min-height: 1.5em;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00C9A7; }
+        }
+        .timeline-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            height: 20px;
+            width: 2px;
+            background: linear-gradient(to bottom, #6C63FF, #FF6584);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            left: auto;
+            background-color: #6C63FF;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #0F172A;
+        }
+        .toggle-checkbox {
+            transition: all 0.3s ease;
+        }
+        .light-mode {
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+        .light-mode .bg-dark {
+            background-color: #F8FAFC;
+        }
+        .light-mode .text-light {
+            color: #0F172A;
+        }
+        .light-mode .bg-gray-800 {
+            background-color: #E2E8F0;
+        }
+        .light-mode .text-gray-300 {
+            color: #4B5563;
+        }
+        .light-mode .border-gray-700 {
+            border-color: #CBD5E1;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Mahak Gupta</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-accent transition">About</a>
+                    <a href="#experience" class="text-gray-300 hover:text-accent transition">Experience</a>
+                    <a href="#projects" class="text-gray-300 hover:text-accent transition">Projects</a>
+                    <a href="#research" class="text-gray-300 hover:text-accent transition">Research</a>
+                    <a href="#contact" class="text-gray-300 hover:text-accent transition">Contact</a>
+                    <div class="flex items-center">
+                        <span class="mr-2 text-sm text-gray-300">Dark</span>
+                        <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                            <input type="checkbox" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                            <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <span class="text-sm text-gray-300">Light</span>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-300 hover:text-accent focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark/95 pb-3 px-4 border-t border-gray-800">
+            <div class="flex flex-col space-y-2">
+                <a href="#about" class="text-gray-300 hover:text-accent transition py-2">About</a>
+                <a href="#experience" class="text-gray-300 hover:text-accent transition py-2">Experience</a>
+                <a href="#projects" class="text-gray-300 hover:text-accent transition py-2">Projects</a>
+                <a href="#research" class="text-gray-300 hover:text-accent transition py-2">Research</a>
+                <a href="#contact" class="text-gray-300 hover:text-accent transition py-2">Contact</a>
+                <div class="flex items-center justify-between pt-2">
+                    <span class="text-gray-300">Theme</span>
+                    <div class="flex items-center">
+                        <span class="mr-2 text-sm text-gray-300">Dark</span>
+                        <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                            <input type="checkbox" id="toggle-mobile" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                            <label for="toggle-mobile" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <span class="text-sm text-gray-300">Light</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Mahak Gupta <span class="wave">👋</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-accent">AI/ML Computational Scientist</h2>
+                    <div class="h-12 mb-8">
+                        <p id="typewriter" class="typewriter text-xl md:text-2xl text-primary"></p>
+                    </div>
+                    <p class="text-gray-300 mb-8 text-lg">Building intelligent systems with Generative AI, Large Language Models, and Cloud Technologies. Currently based in Bengaluru, India.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-lg font-medium hover:opacity-90 transition flex items-center">
+                            <i class="fas fa-file-alt mr-2"></i> Resume
+                        </a>
+                        <a href="#" class="px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary/10 transition flex items-center">
+                            <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                        </a>
+                        <a href="#" class="px-6 py-3 border border-accent text-accent rounded-lg font-medium hover:bg-accent/10 transition flex items-center">
+                            <i class="fab fa-github mr-2"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full blur-lg opacity-30 animate-pulse"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full animate-spin opacity-20" style="animation-duration: 6s;"></div>
+                        <div class="relative w-full h-full flex items-center justify-center">
+                            <div class="bg-dark rounded-full p-2 w-60 h-60 md:w-72 md:h-72 overflow-hidden border-4 border-primary/30">
+                                <!-- Placeholder for headshot -->
+                                <div class="w-full h-full bg-gray-700 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user text-6xl text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-dark to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">About Me</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <p class="text-gray-300 mb-6 text-lg">I'm an AI/ML Computational Scientist passionate about building intelligent systems that solve real-world problems. With expertise in Generative AI, Large Language Models (LLMs), and cloud technologies, I bridge the gap between cutting-edge research and practical applications.</p>
+                    <p class="text-gray-300 mb-6 text-lg">My journey in AI began with a fascination for how machines can understand and generate human-like text. This led me to specialize in Retrieval-Augmented Generation (RAG) systems, prompt engineering, and deploying AI solutions at scale on cloud platforms like GCP and AWS.</p>
+                    <p class="text-gray-300 text-lg">When I'm not architecting AI systems, you can find me contributing to open-source projects, exploring new research papers, or mentoring aspiring data scientists. I believe in the power of AI to transform industries while being ethically responsible.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-primary">Location</h3>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-secondary mr-3"></i>
+                            <span class="text-gray-300">Bengaluru, India</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-primary">Connect</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center text-gray-300 hover:text-accent transition">
+                                <i class="fab fa-linkedin-in mr-3"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="flex items-center text-gray-300 hover:text-accent transition">
+                                <i class="fab fa-github mr-3"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="flex items-center text-gray-300 hover:text-accent transition">
+                                <i class="fab fa-twitter mr-3"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="flex items-center text-gray-300 hover:text-accent transition">
+                                <i class="fas fa-envelope mr-3"></i>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-primary">Current Focus</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">LLMs</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">GenAI</span>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">RAG</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">Vertex AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Professional Journey</span>
+            </h2>
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 h-full w-1 bg-gradient-to-b from-primary to-accent transform -translate-x-1/2"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-8 md:space-y-16">
+                    <!-- Microsoft -->
+                    <div class="relative timeline-item flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-1/2 md:pr-16 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 shadow-lg hover:border-primary transition">
+                                <div class="flex items-center justify-end mb-2">
+                                    <span class="text-sm text-gray-400">2023 - Present</span>
+                                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center ml-4">
+                                        <i class="fas fa-briefcase text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-primary">Microsoft</h3>
+                                <p class="text-gray-300 mb-2">AI/ML Computational Scientist</p>
+                                <ul class="text-gray-400 space-y-1 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-accent"></i>
+                                        <span>Architected RAG systems for enterprise knowledge management</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-accent"></i>
+                                        <span>Optimized LLM deployment on Azure infrastructure</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-accent"></i>
+                                        <span>Developed prompt engineering frameworks for consistent outputs</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-16">
+                            <!-- Empty space for alignment -->
+                        </div>
+                    </div>
+                    
+                    <!-- CloudSide -->
+                    <div class="relative timeline-item flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-1/2 md:pr-16 order-2 md:order-1">
+                            <!-- Empty space for alignment -->
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-16 mb-8 md:mb-0 order-1 md:order-2">
+                            <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 shadow-lg hover:border-secondary transition">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-cloud text-white"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-400">2021 - 2023</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-secondary">CloudSide (Searce Inc.)</h3>
+                                <p class="text-gray-300 mb-2">AI Engineer</p>
+                                <ul class="text-gray-400 space-y-1 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-accent"></i>
+                                        <span>Built payment automation product using computer vision</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-accent"></i>
+                                        <span>Implemented knapsack optimization for resource allocation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-accent"></i>
+                                        <span>Deployed RCNN models for document classification on GCP</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accenture -->
+                    <div class="relative timeline-item flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-1/2 md:pr-16 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 shadow-lg hover:border-accent transition">
+                                <div class="flex items-center justify-end mb-2">
+                                    <span class="text-sm text-gray-400">2019 - 2021</span>
+                                    <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center ml-4">
+                                        <i class="fas fa-chart-line text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-accent">Accenture</h3>
+                                <p class="text-gray-300 mb-2">Data Science Analyst</p>
+                                <ul class="text-gray-400 space-y-1 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-primary"></i>
+                                        <span>Developed synthetic bank statement generation system</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-primary"></i>
+                                        <span>Created classification pipelines for financial documents</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chevron-right text-xs mt-1 mr-2 text-primary"></i>
+                                        <span>Optimized ETL processes for large-scale data processing</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-16">
+                            <!-- Empty space for alignment -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">AI Projects</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-primary">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">RAG-Powered Knowledge Base</h3>
+                            <p class="text-gray-400 text-sm">Microsoft</p>
+                        </div>
+                        <div class="bg-primary/10 p-2 rounded-lg">
+                            <i class="fas fa-robot text-primary"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">A retrieval-augmented generation system that provides accurate, sourced answers from enterprise documents using LLMs and vector databases.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">LangChain</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">OpenAI</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">Pinecone</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">Azure</span>
+                    </div>
+                    <a href="#" class="text-accent hover:underline flex items-center">
+                        <span>View Case Study</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-secondary">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-secondary">Payment Automation System</h3>
+                            <p class="text-gray-400 text-sm">CloudSide</p>
+                        </div>
+                        <div class="bg-secondary/10 p-2 rounded-lg">
+                            <i class="fas fa-money-bill-wave text-secondary"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">Computer vision pipeline that processes invoices and receipts with 98% accuracy, reducing manual work by 70% for finance teams.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">TensorFlow</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">OpenCV</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">GCP</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">Flask</span>
+                    </div>
+                    <a href="#" class="text-accent hover:underline flex items-center">
+                        <span>View Demo</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-accent">Synthetic Document Generator</h3>
+                            <p class="text-gray-400 text-sm">Accenture</p>
+                        </div>
+                        <div class="bg-accent/10 p-2 rounded-lg">
+                            <i class="fas fa-file-invoice text-accent"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">Generative AI system that creates realistic synthetic bank statements for testing financial applications without real customer data.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">GANs</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">PyTorch</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">AWS</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">Docker</span>
+                    </div>
+                    <a href="#" class="text-accent hover:underline flex items-center">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Research & Publications</span>
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Publication 1 -->
+                <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-primary transition">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                            <i class="fas fa-file-alt text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Sentiment Analysis in Financial News</h3>
+                            <p class="text-gray-400">IEEE Access, 2022</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Comparative study of transformer-based models for sentiment analysis in financial news articles and their impact on stock price prediction.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">BERT</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">FinBERT</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">NLP</span>
+                    </div>
+                    <a href="#" class="text-accent hover:underline flex items-center">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        <span>Read Publication</span>
+                    </a>
+                </div>
+                
+                <!-- Publication 2 -->
+                <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-secondary transition">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-secondary/10 p-3 rounded-lg mr-4">
+                            <i class="fas fa-chart-line text-secondary text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-secondary">LSTM vs SVR for Stock Prediction</h3>
+                            <p class="text-gray-400">Journal of Computational Finance, 2021</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Empirical evaluation of deep learning vs traditional methods for multi-horizon stock price forecasting with technical indicators.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">LSTM</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">SVR</span>
+                        <span class="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">Time Series</span>
+                    </div>
+                    <a href="#" class="text-accent hover:underline flex items-center">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        <span>Read Publication</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Skills Section -->
+            <div class="mt-20">
+                <h2 class="text-3xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Skills & Technologies</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Programming -->
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4 text-primary flex items-center">
+                            <i class="fas fa-code mr-2"></i> Programming
+                        </h3>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">Python</span>
+                                    <span class="text-gray-400">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">SQL</span>
+                                    <span class="text-gray-400">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">JavaScript</span>
+                                    <span class="text-gray-400">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ML/AI -->
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4 text-secondary flex items-center">
+                            <i class="fas fa-brain mr-2"></i> ML/AI
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">LLMs</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">GenAI</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">RAG</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">NLP</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">PyTorch</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Prompt Eng.</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">LangChain</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud Platforms -->
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4 text-accent flex items-center">
+                            <i class="fas fa-cloud mr-2"></i> Cloud Platforms
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">GCP</span>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">AWS</span>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Azure</span>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Vertex AI</span>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Bedrock</span>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Docker</span>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Kubernetes</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Databases -->
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4 text-purple-400 flex items-center">
+                            <i class="fas fa-database mr-2"></i> Databases
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">BigQuery</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">Pinecone</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded full text-sm">MongoDB</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">Redis</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certifications -->
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center">
+                        <span class="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">Certifications & Achievements</span>
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-primary transition flex flex-col items-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-certificate text-primary text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-center text-primary">Oracle Cloud</h4>
+                            <p class="text-gray-400 text-sm text-center">AI Professional</p>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-secondary transition flex flex-col items-center">
+                            <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fab fa-google text-secondary text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-center text-secondary">GCP Professional</h4>
+                            <p class="text-gray-400 text-sm text-center">Data Engineer</p>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-accent transition flex flex-col items-center">
+                            <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fab fa-microsoft text-accent text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-center text-accent">Azure AI Engineer</h4>
+                            <p class="text-gray-400 text-sm text-center">Associate</p>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-400 transition flex flex-col items-center">
+                            <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fab fa-leanpub text-purple-400 text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-center text-purple-400">Deep Learning</h4>
+                            <p class="text-gray-400 text-sm text-center">Specialization</p>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition flex flex-col items-center">
+                            <div class="w-16 h-16 bg-yellow-500/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-code text-yellow-400 text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-center text-yellow-400">LeetCode</h4>
+                            <p class="text-gray-400 text-sm text-center">Top 10%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Let's Connect</span>
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-primary">Let's Build Something Intelligent Together</h3>
+                    <p class="text-gray-300 mb-8 text-lg">I'm always open to discussing AI projects, research collaborations, or opportunities to leverage cutting-edge technologies to solve complex problems.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-300">Email Me</h4>
+                                <a href="mailto:hello@mahakgupta.com" class="text-accent hover:underline">hello@mahakgupta.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-300">Location</h4>
+                                <p class="text-gray-300">Bengaluru, India</p>
+                                <div class="mt-4 rounded-xl overflow-hidden">
+                                    <!-- Placeholder for map -->
+                                    <div class="w-full h-48 bg-gray-700 flex items-center justify-center">
+                                        <i class="fas fa-map text-4xl text-gray-500"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-accent/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-share-alt text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-300">Social Links</h4>
+                <div class="flex space-x-4 mt-2">
+                    <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition">
+                        <i class="fab fa-linkedin-in text-gray-300"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition">
+                        <i class="fab fa-github text-gray-300"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-400 transition">
+                        <i class="fab fa-twitter text-gray-300"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-red-500 transition">
+                        <i class="fab fa-youtube text-gray-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <form class="bg-gray-800/50 rounded-xl p-8 border border-gray-700">
+        <h3 class="text-xl font-bold mb-6 text-primary">Send Me a Message</h3>
+        <div class="space-y-4">
+            <div>
+                <label for="name" class="block text-gray-300 mb-2">Name</label>
+                <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+                <label for="email" class="block text-gray-300 mb-2">Email</label>
+                <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+                <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                <input type="text" id="subject" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+                <label for="message" class="block text-gray-300 mb-2">Message</label>
+                <textarea id="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white font-medium py-3 px-6 rounded-lg hover:opacity-90 transition">
+                Send Message
+            </button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 py-12 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <a href="#" class="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Mahak Gupta</a>
+                <p class="text-gray-400 mt-2">AI/ML Computational Scientist</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-accent transition">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-accent transition">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-accent transition">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-accent transition">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2023 Mahak Gupta. All rights reserved.</p>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-500 hover:text-accent text-sm transition">Privacy Policy</a>
+                <a href="#" class="text-gray-500 hover:text-accent text-sm transition">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Improved Typewriter Effect
+    const phrases = [
+        "Building Gen AI Systems",
+        "Deploying LLMs on Cloud",
+        "RAG-Powered Automation",
+        "Prompt Engineering Expert",
+        "AI Architecture Design"
+    ];
+    let currentPhrase = 0;
+    let currentChar = 0;
+    let isDeleting = false;
+    let isEnd = false;
+    let typingSpeed = 100;
+    let deletingSpeed = 50;
+    let pauseBetweenPhrases = 2000;
+    
+    function typeWriter() {
+        const element = document.getElementById("typewriter");
+        const fullPhrase = phrases[currentPhrase];
+        
+        if (isDeleting) {
+            element.textContent = fullPhrase.substring(0, currentChar - 1);
+            currentChar--;
+            typingSpeed = deletingSpeed;
+        } else {
+            element.textContent = fullPhrase.substring(0, currentChar + 1);
+            currentChar++;
+            typingSpeed = Math.random() * 50 + 50; // Vary typing speed for realism
+        }
+        
+        if (!isDeleting && currentChar === fullPhrase.length) {
+            isEnd = true;
+            typingSpeed = pauseBetweenPhrases;
+            isDeleting = true;
+        } else if (isDeleting && currentChar === 0) {
+            isDeleting = false;
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+            typingSpeed = 500; // Pause before typing next phrase
+        }
+        
+        setTimeout(typeWriter, typingSpeed);
+    }
+    
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Dark/light mode toggle
+    const toggle = document.getElementById('toggle');
+    const toggleMobile = document.getElementById('toggle-mobile');
+    const html = document.documentElement;
+    
+    function toggleDarkMode(isDark) {
+        if (isDark) {
+            html.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            html.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+    
+    // Check for saved user preference or system preference
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        toggle.checked = true;
+        if (toggleMobile) toggleMobile.checked = true;
+        toggleDarkMode(true);
+    } else {
+        toggle.checked = false;
+        if (toggleMobile) toggleMobile.checked = false;
+        toggleDarkMode(false);
+    }
+    
+    // Listen for toggle changes
+    toggle.addEventListener('change', (e) => {
+        toggleDarkMode(e.target.checked);
+        if (toggleMobile) toggleMobile.checked = e.target.checked;
+    });
+    
+    if (toggleMobile) {
+        toggleMobile.addEventListener('change', (e) => {
+            toggleDarkMode(e.target.checked);
+            toggle.checked = e.target.checked;
+        });
+    }
+    
+    // Start animations
+    document.addEventListener('DOMContentLoaded', () => {
+        typeWriter();
+        
+        // Add animation to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-float');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.project-card').forEach(card => {
+            observer.observe(card);
+        });
+    });
+</script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MahakGupta/my-portfolio" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
